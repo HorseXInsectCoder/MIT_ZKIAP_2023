@@ -1,4 +1,4 @@
-##### ZK interactive demo
+### ZK interactive demo
 http://web.mit.edu/~ezyang/Public/graph/svg.html
 
 Exercise 1: Currently, you can only select adjacent pairs of nodes to check. Would the proof still be zero knowledge if you could pick arbitrary pairs of nodes to check?
