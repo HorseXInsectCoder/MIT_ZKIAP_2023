@@ -1,4 +1,4 @@
-```
+
 pragma circom 2.1.2;
 
 // 把十进制数字转换为二进制位，b[0]是最低有效位，如：5 -> 1010
@@ -28,4 +28,9 @@ template Num2Bits(nBits) {
     // sum 必须与输入 in 相等
     sum === in;
 }
-```
+
+component main = Num2Bits(4);
+
+/* INPUT = {
+    "in": ["5"]
+} */

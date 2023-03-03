@@ -1,4 +1,3 @@
-```
 pragma circom 2.1.2;
 
 /*
@@ -23,4 +22,9 @@ template IsZero() {
     // 约束，如果in是零，那么out = -in * inv + 1 = 1。如果out为零，则它遵循in * inv = 1，这意味着in不能为零。
     in * out === 0;
 }
-```
+
+component main = IsZero();
+
+/* INPUT = {
+    "in": ["1"]
+} */
