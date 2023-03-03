@@ -2,13 +2,17 @@
 pragma circom 2.1.2;
 
 // 把十进制数字转换为二进制位，b[0]是最低有效位，如：5 -> 1010
-template Num2Bits(n) {
+/*  Parameters: nBits
+    Input signal(s): in
+    Output signal(s): b[nBits] 
+*/
+template Num2Bits(nBits) {
     signal input in;
-    signal output b[n];
+    signal output b[nBits];
     var sum = 0;        // 校验变成bit后加起来是否还等于输入
     var e = 1;
     
-    for (var i = 0; i < n; i++) {
+    for (var i = 0; i < nBits; i++) {
         // 右移i位并且&1，得到每次最右边的bit
         b[i] <-- (in >> i) & 1;
         
