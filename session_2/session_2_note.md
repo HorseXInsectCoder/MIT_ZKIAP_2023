@@ -82,13 +82,13 @@ component main { public [ b0, b1, b2, b3 ] } = Example();
     "b0": "1",
     "b1": "1",
     "b2": "0",
-    "b3": "1",
+    "b3": "1"
 } */
 ```
 
 
 
-```js
+```
 pragma circom 2.1.2;
 
 // include "circomlib/poseidon.circom";
@@ -130,7 +130,7 @@ component main { public [ b ] } = Example();
 
 
 
-```js
+```
 pragma circom 2.1.2;
 
 // include "circomlib/poseidon.circom";
@@ -166,7 +166,7 @@ component main { public [ b ] } = Example(4);
 
 
 
-```js
+```
 pragma circom 2.1.2;
 
 template Example () {
@@ -231,7 +231,7 @@ component main = Example();
 
 
 
-```js
+```
 pragma circom 2.0.0;
 include "../node_modules/circomlib/circuits/poseidon.circom"; 		// 引入poseidon hash函数
 
@@ -268,3 +268,6 @@ template GetMerkleRoot(k){	// k是树的深度，越深可以支持的叶子数�
 
 }
 ```
+
+作业讲解补充：
+为什么要有约束？因为约束可以等效成电路。单纯的逻辑运算并不能形成有效的电路，有可能会被攻击。
