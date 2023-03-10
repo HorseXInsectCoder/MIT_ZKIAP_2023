@@ -27,18 +27,32 @@ template Sign() {
 }
 
 template GroupSign(n) {
+    // even though m is not involved in the circuit, 
+    // it is still constrained and cannot be 
+    // changed after it is set.
     signal input m;
+    
     signal input sk;    
     signal input pk[n];
     
+    // get the public key
      component checker = SecretToPublic();
-     checker.sk <== pk;
+     checker.sk <== sk;
      
-     signal mSquared;
-     mSquared <== m * m;
+     // make sure computedPk is in the inputted group
+    signal zeroChecker[n+1];
+    zeroChecker[0] <== 1;
+    for (var i = 0; i < n; i++) {
+        zeroChecker[i+1] <== zeroChecker[i] * (pk[i] - checker.pk);
+    }
+    zeroChecker[n] === 0;
+    
+    signal mSquared;
+    mSquared <== m * m;
 }
 
-component main { public [ pk, m ] } = Sign();
+// component main { public [ pk, m ] } = Sign();
+component main { public [ pk, m ] } = GroupSign(5);
 
 // "m"表示message，可以是任意消息
 /* INPUT = {
